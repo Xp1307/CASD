@@ -38,8 +38,8 @@ def load_mgtab_undirt(pt_raw_data_dir, args):
         
     '''
     path = pt_raw_data_dir
-    if os.path.exists('/data3/xupin/0_UNName/data/mgtab_undirct.pt'):
-        data = torch.load('/data3/xupin/0_UNName/data/mgtab_undirct.pt')
+    if os.path.exists('/data3/data/mgtab_undirct.pt'):
+        data = torch.load('/data3/data/mgtab_undirct.pt')
         print('Original Graph Already Exsists!')
         print(data)
         return data
@@ -67,7 +67,7 @@ def load_mgtab_undirt(pt_raw_data_dir, args):
     
     print(data)
     print('Original Graph Created Successfully!')
-    torch.save(data, '/data3/xupin/0_UNName/data/'+args.dataset+'_undirct.pt')
+    torch.save(data, '/data3/data/'+args.dataset+'_undirct.pt')
     return data
 
 def load_mgtab(pt_raw_data_dir, args):
@@ -77,8 +77,8 @@ def load_mgtab(pt_raw_data_dir, args):
         
     '''
     path = pt_raw_data_dir
-    if os.path.exists('/data3/xupin/0_UNName/data/mgtab.pt'):
-        data = torch.load('/data3/xupin/0_UNName/data/mgtab.pt', map_location='cuda:'+str(args.device_id))
+    if os.path.exists('/data3/data/mgtab.pt'):
+        data = torch.load('/data3/data/mgtab.pt', map_location='cuda:'+str(args.device_id))
         print('Original Graph Already Exsists!')
         print(data)
         return data
@@ -105,7 +105,7 @@ def load_mgtab(pt_raw_data_dir, args):
     
     print(data)
     print('Original Graph Created Successfully!')
-    torch.save(data, '/data3/xupin/0_UNName/data/'+args.dataset+'.pt')
+    torch.save(data, '/data3/data/'+args.dataset+'.pt')
     return data
 
 def load_mgtab_random(pt_raw_data_dir, args):
@@ -115,8 +115,8 @@ def load_mgtab_random(pt_raw_data_dir, args):
         
     '''
     path = pt_raw_data_dir
-    if os.path.exists('/data3/xupin/0_UNName/data/mgtab.pt'):
-        data = torch.load('/data3/xupin/0_UNName/data/mgtab.pt', map_location='cuda:'+str(args.device_id))
+    if os.path.exists('/data3/data/mgtab.pt'):
+        data = torch.load('/data3/data/mgtab.pt', map_location='cuda:'+str(args.device_id))
         print('Original Graph Already Exsists!')
         print(data)
         return data
@@ -144,7 +144,7 @@ def load_mgtab_random(pt_raw_data_dir, args):
     
     print(data)
     print('Original Graph Created Successfully!')
-    torch.save(data, '/data3/xupin/0_UNName/data/'+args.dataset+'.pt')
+    torch.save(data, '/data3/data/'+args.dataset+'.pt')
     return data
 
 #! 读取存储为 pt 文件的 twibot_20 原始数据集
@@ -155,8 +155,8 @@ def load_pt_raw_data(pt_raw_data_dir):
         
     '''
     path = pt_raw_data_dir
-    if os.path.exists('/data3/xupin/0_UNName/data/twibot_20_pt_undirct.pt'):
-        data = torch.load('/data3/xupin/0_UNName/data/twibot_20_pt_undirct.pt')
+    if os.path.exists('/data3/data/twibot_20_pt_undirct.pt'):
+        data = torch.load('/data3/data/twibot_20_pt_undirct.pt')
         return data
         
     edge_index = torch.load(path + 'edge_index.pt')
@@ -202,7 +202,7 @@ def load_pt_raw_data(pt_raw_data_dir):
     
     
     print(data)
-    torch.save(data, '/data3/xupin/0_UNName/data/twibot_20_pt_undirct.pt')
+    torch.save(data, '/data3/data/twibot_20_pt_undirct.pt')
     return data
 
 #! 读取存储为 pt 文件的 twibot_22 原始数据集
@@ -213,13 +213,13 @@ def load_pt_raw_data_twibot22(pt_raw_data_dir):
         
     '''
     path = pt_raw_data_dir
-    if os.path.exists('/data3/xupin/0_UNName/data/twibot_22_pt_undirct.pt'):
-        data = torch.load('/data3/xupin/0_UNName/data/twibot_22_pt_undirct.pt')
+    if os.path.exists('/data3/data/twibot_22_pt_undirct.pt'):
+        data = torch.load('/data3/data/twibot_22_pt_undirct.pt')
         print('original graph pt already exsist...')
         print(data)
         return data
 
-    raw_data_dir = '/data3/xupin/0_UNName/processed_data_twibot22/'
+    raw_data_dir = '/data3/processed_data_twibot22/'
     edge_index = torch.load(raw_data_dir + 'edge_index.pt')
     edge_type = torch.load(raw_data_dir + 'edge_type.pt')
     edge_index, edge_type = relational_undirected(edge_index, edge_type)
@@ -246,7 +246,7 @@ def load_pt_raw_data_twibot22(pt_raw_data_dir):
     
     print('original graph pt create successfully!')
     print(data)
-    torch.save(data, '/data3/xupin/0_UNName/data/twibot_22_pt_undirct.pt')
+    torch.save(data, '/data3/data/twibot_22_pt_undirct.pt')
     return data
 
 #! 读取存储为 pt 文件的 twibot_22_100w 原始数据集
@@ -256,13 +256,13 @@ def load_pt_raw_data_twibot22_100w():
         @Param: pt_raw_data_dir | pt文件存储的文件路径
         
     '''
-    if os.path.exists('/data3/xupin/0_UNName/data/twibot_22_100w_pt_undirct.pt'):
-        data = torch.load('/data3/xupin/0_UNName/data/twibot_22_100w_pt_undirct.pt')
+    if os.path.exists('/data3/data/twibot_22_100w_pt_undirct.pt'):
+        data = torch.load('/data3/data/twibot_22_100w_pt_undirct.pt')
         print('original graph pt already  xsist...')
         print(data)
         return data
 
-    raw_data_dir = '/data3/xupin/0_UNName/processed__raw_twibot_22/data/all_100w_nodes/processed/graph_component/'
+    raw_data_dir = '/data3/processed__raw_twibot_22/data/all_100w_nodes/processed/graph_component/'
     edge_index = torch.load(raw_data_dir + 'edge_index.pt')
     edge_type = torch.load(raw_data_dir + 'edge_type.pt')
     edge_index, edge_type = relational_undirected(edge_index, edge_type)
@@ -289,7 +289,7 @@ def load_pt_raw_data_twibot22_100w():
     
     print('original graph pt create successfully!')
     print(data)
-    torch.save(data, '/data3/xupin/0_UNName/data/twibot_22_100w_pt_undirct.pt')
+    torch.save(data, '/data3/data/twibot_22_100w_pt_undirct.pt')
     return data
 
 #! 读取存储为 pt 文件的 twibot_22_100w 原始数据集
@@ -299,13 +299,13 @@ def load_pt_raw_data_twibot22_100w_xlm():
         @Param: pt_raw_data_dir | pt文件存储的文件路径
         
     '''
-    if os.path.exists('/data3/xupin/0_UNName/data/twibot_22_100w_xlm_undirct.pt'):
-        data = torch.load('/data3/xupin/0_UNName/data/twibot_22_100w_xlm_undirct.pt')
+    if os.path.exists('/data3/data/twibot_22_100w_xlm_undirct.pt'):
+        data = torch.load('/data3/data/twibot_22_100w_xlm_undirct.pt')
         print('original graph pt already  xsist...')
         print(data)
         return data
 
-    raw_data_dir = '/data3/xupin/0_UNName/processed__raw_twibot_22/data/all_100w_nodes_xlm/processed/graph_component/'
+    raw_data_dir = '/data3/processed__raw_twibot_22/data/all_100w_nodes_xlm/processed/graph_component/'
     edge_index = torch.load(raw_data_dir + 'edge_index.pt')
     edge_type = torch.load(raw_data_dir + 'edge_type.pt')
     edge_index, edge_type = relational_undirected(edge_index, edge_type)
@@ -332,7 +332,7 @@ def load_pt_raw_data_twibot22_100w_xlm():
     
     print('original graph pt create successfully!')
     print(data)
-    torch.save(data, '/data3/xupin/0_UNName/data/twibot_22_100w_xlm_undirct.pt')
+    torch.save(data, '/data3/data/twibot_22_100w_xlm_undirct.pt')
     return data
 
 #! 将多边异质图转化为多个同质图 (hetero_to_homo)
@@ -370,7 +370,7 @@ def hetero_to_homo(pt_data_dir):
     Type_1_Original_Graph = copy.deepcopy(Original_Hetero_Graph)
     Type_1_Original_Graph.edge_type = edge_indices_0[0]
     Type_1_Original_Graph.edge_index = edge_type_0_edges
-    torch.save(Type_1_Original_Graph, '/data3/xupin/0_UNName/data/twibot_22_type_1_pt_undirct.pt')
+    torch.save(Type_1_Original_Graph, '/data3/data/twibot_22_type_1_pt_undirct.pt')
     print(Type_1_Original_Graph)
     print()
 
@@ -386,13 +386,13 @@ def hetero_to_homo(pt_data_dir):
     Type_2_Original_Graph = copy.deepcopy(Original_Hetero_Graph)
     Type_2_Original_Graph.edge_type = edge_indices_1[0]         #! 这里要修改一下, 为1或0
     Type_2_Original_Graph.edge_index = edge_type_1_edges
-    torch.save(Type_2_Original_Graph, '/data3/xupin/0_UNName/data/twibot_22_type_2_pt_undirct.pt')
+    torch.save(Type_2_Original_Graph, '/data3/data/twibot_22_type_2_pt_undirct.pt')
     print(Type_2_Original_Graph)
     print()
     return [Type_1_Original_Graph, Type_2_Original_Graph]
 
 #! 子异质图转化为多个同质图 (subgraph_hetero_to_homo)
-def subgraph_hetero_to_homo(subgraph_list, dataset_name, type_num, save_dir='/data3/xupin/0_UNName/data/way_2/'):
+def subgraph_hetero_to_homo(subgraph_list, dataset_name, type_num, save_dir='/data3/data/way_2/'):
     '''
         @Param: subgraph_list | 子图列表 \n
         @Param: save_dir | 结果保存路径
@@ -549,12 +549,12 @@ def subgraph_homo_to_hetero(pt_data_dir, edge_type_list, dataset_name='twibot_20
         @Param: pt_data_dir | 增强子图存放的文件路径 \n
         @Param: edge_type_list | 边类型列表
     '''
-    if (os.path.exists('/data3/xupin/0_UNName/data/way_2/'+dataset_name+'_subgraphlist_hetero_to_type_1_node_hetero.pt')) and \
-        (os.path.exists('/data3/xupin/0_UNName/data/way_2/'+dataset_name+'_subgraphlist_hetero_to_type_2_node_hetero.pt')):
+    if (os.path.exists('/data3/data/way_2/'+dataset_name+'_subgraphlist_hetero_to_type_1_node_hetero.pt')) and \
+        (os.path.exists('/data3/data/way_2/'+dataset_name+'_subgraphlist_hetero_to_type_2_node_hetero.pt')):
             print('already converted...')
             return
-    type_1_homo_subgraph_list = torch.load('/data3/xupin/0_UNName/data/way_2/'+dataset_name+'_subgraphlist_hetero_to_type_1_homo.pt')
-    type_2_homo_subgraph_list = torch.load('/data3/xupin/0_UNName/data/way_2/'+dataset_name+'_subgraphlist_hetero_to_type_2_homo.pt')
+    type_1_homo_subgraph_list = torch.load('/data3/data/way_2/'+dataset_name+'_subgraphlist_hetero_to_type_1_homo.pt')
+    type_2_homo_subgraph_list = torch.load('/data3/data/way_2/'+dataset_name+'_subgraphlist_hetero_to_type_2_homo.pt')
     for type_1_subgraph, type_2_subgraph in zip(type_1_homo_subgraph_list, type_2_homo_subgraph_list):
         #! 合并 edge_index
         edge_index_merged = []
@@ -572,8 +572,8 @@ def subgraph_homo_to_hetero(pt_data_dir, edge_type_list, dataset_name='twibot_20
         type_2_subgraph.edge_index = edge_index_merged
         type_1_subgraph.edge_type = edge_type_merged
         type_2_subgraph.edge_type = edge_type_merged
-    torch.save(type_1_homo_subgraph_list, '/data3/xupin/0_UNName/data/way_2/'+dataset_name+'_subgraphlist_hetero_to_type_1_node_hetero.pt')
-    torch.save(type_2_homo_subgraph_list, '/data3/xupin/0_UNName/data/way_2/'+dataset_name+'_subgraphlist_hetero_to_type_2_node_hetero.pt')
+    torch.save(type_1_homo_subgraph_list, '/data3/data/way_2/'+dataset_name+'_subgraphlist_hetero_to_type_1_node_hetero.pt')
+    torch.save(type_2_homo_subgraph_list, '/data3/data/way_2/'+dataset_name+'_subgraphlist_hetero_to_type_2_node_hetero.pt')
     print('converted successfully')
 
 def mgtab_subgraph_homo_to_hetero(pt_data_dir, type_num, dataset_name='twibot_20'):
