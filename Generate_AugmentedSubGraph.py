@@ -50,7 +50,7 @@ if __name__ == "__main__":
             main_logger = mp_logger('main')
             
             #! 读取数据并划分子图
-            data_dir_path = '/data3/xupin/0_UNName/processed_data/'
+            data_dir_path = '/data3/processed_data/'
             Original_Graph=load_pt_raw_data(data_dir_path)
             SubGraph_List = Cluster_Split(Original_Graph, args.subgraph_num)
             subgraphs_num = len(SubGraph_List)
@@ -61,11 +61,11 @@ if __name__ == "__main__":
             
             #! 生成 hard negative sample, 并创建 augmented graph
             AugmentedGraph_List = generation(args, subgraphs_num, nodes_num_list, Original_Graph.node_dim, SubGraph_List, device, main_logger)
-            torch.save(AugmentedGraph_List, '/data3/xupin/0_UNName/data/AugmentedSubGraph_List.pt')
+            torch.save(AugmentedGraph_List, '/data3/data/AugmentedSubGraph_List.pt')
 
         #! 将异质图转化为单边同质图
         else:
-            Original_Graph_Path = '/data3/xupin/0_UNName/data/'
+            Original_Graph_Path = '/data3/data/'
             #! 分别所有单边同质图
             Type_Original_Graph_List = hetero_to_homo(Original_Graph_Path)
             
@@ -111,7 +111,7 @@ if __name__ == "__main__":
             main_logger = mp_logger('main')
             
             #! 读取数据并划分子图
-            data_dir_path = '/data3/xupin/0_UNName/processed_data/'
+            data_dir_path = '/data3/processed_data/'
             Original_Graph=load_pt_raw_data(data_dir_path)
             SubGraph_List = Cluster_Split(Original_Graph, args.subgraph_num)
             subgraphs_num = len(SubGraph_List)
@@ -122,13 +122,13 @@ if __name__ == "__main__":
             
             #! 生成 hard negative sample, 并创建 augmented graph
             AugmentedGraph_List = generation(args, subgraphs_num, nodes_num_list, Original_Graph.node_dim, SubGraph_List, device, main_logger)
-            torch.save(AugmentedGraph_List, '/data3/xupin/0_UNName/data/AugmentedSubGraph_List.pt')
+            torch.save(AugmentedGraph_List, '/data3/data/AugmentedSubGraph_List.pt')
         else:
             #! 创建日志记录器
             main_logger = mp_logger('type'+'_'+str(args.type_index))
             
             #! 读取数据并划分子图
-            data_dir_path = '/data3/xupin/0_UNName/data/'
+            data_dir_path = '/data3/data/'
             Original_Graph = torch.load(data_dir_path+'twibot_20_type_'+str(args.type_index)+'_pt_undirct.pt')
             Original_Graph.node_index=torch.arange(Original_Graph.x.size()[0])  ## 添加一个 node_index, 用来记录节点的索引值                                    
             
@@ -141,4 +141,4 @@ if __name__ == "__main__":
             
             #! 生成 hard negative sample, 并创建 augmented graph
             AugmentedGraph_List = generation(args, subgraphs_num, nodes_num_list, Original_Graph.node_dim, SubGraph_List, device, main_logger=main_logger)
-            torch.save(AugmentedGraph_List, '/data3/xupin/0_UNName/data/twibot_20_type_'+str(args.type_index)+'_pt_undirct_augmented_subgraph'+'.pt')          
+            torch.save(AugmentedGraph_List, '/data3/data/twibot_20_type_'+str(args.type_index)+'_pt_undirct_augmented_subgraph'+'.pt')          
