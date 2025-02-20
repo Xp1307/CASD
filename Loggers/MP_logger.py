@@ -4,7 +4,7 @@ import logging
 def mp_logger(logger_name):
     current_datetime = datetime.now()
     formatted_datetime = current_datetime.strftime("%Y_%m_%d_%H_%M_%S")
-    save_dir = '/data3/xupin/0_UNName/logs/'+formatted_datetime+'_'+logger_name+'.log'
+    save_dir = '/data3/logs/'+formatted_datetime+'_'+logger_name+'.log'
     
     logging.basicConfig(format='PPID: %(process)d - Time: %(asctime)s - %(levelname)s | %(message)s', 
                         level=logging.INFO, 
@@ -25,7 +25,7 @@ def distinct_logger(logger_name):
     # 防止重复添加处理器
     if not logger.handlers:
         # 创建一个文件处理器
-        fh = logging.FileHandler('/data3/xupin/0_UNName/logs/'+formatted_datetime+'_'+logger_name + '.log')
+        fh = logging.FileHandler('/data3/logs/'+formatted_datetime+'_'+logger_name + '.log')
         fh.setLevel(logging.INFO)
         
         # 创建日志格式
