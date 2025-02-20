@@ -46,7 +46,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
     
     #! 读取数据并划分子图
-    data_dir_path = '/data3/xupin/0_UNName/processed_data/'
+    data_dir_path = '/data3/processed_data/'
     Original_Graph=load_pt_raw_data(data_dir_path)
     SubGraph_List = Cluster_Split(Original_Graph, args.subgraph_num)
     subgraphs_num = len(SubGraph_List)
@@ -58,4 +58,4 @@ if __name__ == "__main__":
     lock = mp.Lock()  # 创建一个锁
     mp.spawn(generation, args=(world_size, args, subgraphs_num, nodes_num_list, Original_Graph.node_dim, SubGraph_List, return_queue, lock), 
              nprocs=world_size, join=True)
-    torch.save(return_queue, '/data3/xupin/0_UNName/data/AugmentedSubGraph_List.pt')
+    torch.save(return_queue, '/data3/data/AugmentedSubGraph_List.pt')
