@@ -11,5 +11,4 @@ from UnknownFW.Graph_Split import Cluster_Split
 
 if __name__ == '__main__':
     type_list = ['type_1','type_2']
-    # merge_augmented_subgraphlist('/data3/xupin/0_UNName/data/', '/data3/xupin/0_UNName/processed_data/', type_list)
-    homo_to_hetero('/data3/xupin/0_UNName/data/', type_list)
+    homo_to_hetero('/data3/data/', type_list)
