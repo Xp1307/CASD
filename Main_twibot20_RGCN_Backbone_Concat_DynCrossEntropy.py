@@ -239,7 +239,7 @@ if __name__ == '__main__':
     #! 数据集名字
     parser.add_argument('--dataset', type=str, default='twibot_20', help='数据集名')
     parser.add_argument('--dataset_name', type=str, default='twibot_20', help='数据集名')
-    parser.add_argument('--dataset_dir', type=str, default='/data3/xupin/0_UNName/data/', help='数据集路径')
+    parser.add_argument('--dataset_dir', type=str, default='/data3/data/', help='数据集路径')
     parser.add_argument('--dataset_specific', type=str, default='_type_1_node_pt_undirct_hetero.pt', help='数据集名字')
     
     #! 数据集特征
