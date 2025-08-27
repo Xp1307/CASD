@@ -4,9 +4,9 @@ import argparse
 from CounterFactual.Generation import generation
 
 from Loggers.MP_logger import mp_logger
-from UnknownFW.load_data import load_mgtab_random
-from UnknownFW.load_data import subgraph_hetero_to_homo
-from UnknownFW.Graph_Split import Cluster_Split
+from FW.load_data import load_mgtab_random
+from FW.load_data import subgraph_hetero_to_homo
+from FW.Graph_Split import Cluster_Split
 
 
 if __name__ == '__main__':
@@ -41,16 +41,16 @@ if __name__ == '__main__':
     
     #! 读取原始图
     load_not_split = False
-    Original_Graph = load_mgtab_random('/data3/xupin/0_UNName/processed_data_mgtab23/small/', args)
+    Original_Graph = load_mgtab_random('/processed_data_mgtab23/small/', args)
     Original_Graph.node_index=torch.arange(Original_Graph.x.size()[0])
     
     # #! 使用 Cluster 生成子图  
     if load_not_split:
         print('already split')
-        SubGraph_List = torch.load('/data3/xupin/0_UNName/data/way_2/'+args.dataset+'_subgraphlist.pt')
+        SubGraph_List = torch.load('/data/way_2/'+args.dataset+'_subgraphlist.pt')
     else:
         SubGraph_List = Cluster_Split(Original_Graph, args.subgraph_num)
-        torch.save(SubGraph_List,'/data3/xupin/0_UNName/data/way_2/'+args.dataset+'_subgraphlist.pt')
+        torch.save(SubGraph_List,'/data/way_2/'+args.dataset+'_subgraphlist.pt')
     
     #! 生成 hard negative sample, 并创建 augmented graph
     device = torch.device('cuda:{}'.format(args.device_id))
@@ -79,7 +79,7 @@ if __name__ == '__main__':
                                             subgraph_hetero_to_homo_list[0].node_dim, subgraph_hetero_to_homo_list, 
                                                 device, main_logger=main_logger)
         #! 保存增强后的结果
-        torch.save(AugmentedGraph_List, '/data3/xupin/0_UNName/data/way_2/'+args.dataset+
+        torch.save(AugmentedGraph_List, '/data/way_2/'+args.dataset+
                    '_subgraphlist_hetero_to_type_'+str(edge_type_index+1)+'_homo.pt') 
 
         #! 清除占用
