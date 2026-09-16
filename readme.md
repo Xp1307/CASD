@@ -4,8 +4,6 @@ Official implementation of our ICME 2025 paper:
 
 **CASD: Counterfactual Augmentation for Social Bot Detection on Twitter**
 
-Pin Xu, Fangfang Yuan, Yueshan Wang, Diandian Guo, Cong Cao, and Yanbing Liu
-
 **IEEE International Conference on Multimedia and Expo (ICME), 2025**
 
 [[Paper / DOI]](https://doi.org/10.1109/ICME59968.2025.11209322)
