@@ -332,24 +332,16 @@ from FW.BotRGCN import BotRGCN
 If you find this repository useful in your research, please cite our paper:
 
 ```bibtex
-@inproceedings{DBLP:conf/icmcs/XuYWGCL25,
-  author       = {Pin Xu and
-                  Fangfang Yuan and
-                  Yueshan Wang and
-                  Diandian Guo and
-                  Cong Cao and
-                  Yanbing Liu},
-  title        = {{CASD:} Counterfactual Augmentation for Social Bot Detection on Twitter},
-  booktitle    = {{IEEE} International Conference on Multimedia and Expo, {ICME} 2025,
-                  Nantes, France, June 30 - July 4, 2025},
-  pages        = {1--6},
-  publisher    = {{IEEE}},
-  year         = {2025},
-  url          = {https://doi.org/10.1109/ICME59968.2025.11209322},
-  doi          = {10.1109/ICME59968.2025.11209322},
-  timestamp    = {Sat, 01 Aug 2026 10:47:14 +0200},
-  biburl       = {https://dblp.org/rec/conf/icmcs/XuYWGCL25.bib},
-  bibsource    = {dblp computer science bibliography, https://dblp.org}
+@INPROCEEDINGS{11209322,
+  author={Xu, Pin and Yuan, Fangfang and Wang, Yueshan and Guo, Diandian and Cao, Cong and Liu, Yanbing},
+  booktitle={2025 IEEE International Conference on Multimedia and Expo (ICME)}, 
+  title={CASD: Counterfactual Augmentation for Social Bot Detection on Twitter}, 
+  year={2025},
+  volume={},
+  number={},
+  pages={1-6},
+  keywords={Representation learning;Social networking (online);Design methodology;Interference;Detectors;Chatbots;Feature extraction;Graph neural networks;Robustness;Fake news;Social Bot Detection;Counterfactual Learning;Graph Neural Network},
+  doi={10.1109/ICME59968.2025.11209322}
 }
 ```
 
